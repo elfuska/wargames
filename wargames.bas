@@ -475,7 +475,7 @@
 5200 PRINT "   ..---.                     ^---.            __    __/         /__/   \/^^\_"
 5210 PRINT "         |                      ./             \.\_--                         \"
 5220 PRINT "        /                   ./                _/                              /"
-5230 PRINT "       |                   .                _/.                           __ /"
+5230 PRINT "       |       SPAIN       .                _/.        SOVIET UNION       __ /"
 5240 PRINT "      .-                  ./               /                          ___/ //"
 5250 PRINT "      \                   .               |                          /"
 5260 PRINT "       |                   .               \_.          ___--_   /\_ \"
@@ -483,7 +483,6 @@
 5290 PRINT "      ^\_.    ______._.                           \_/"
 5300 PRINT "          \../"
 5302 PRINT "       "
-5303 PRINT "             SPAIN                                        USSR"
 5304 PRINT "       "
 5310 IF MID$(CMND$, 1, 6) = "LAUNCH" THEN GOSUB 5480: GOTO 5440
 5320 PRINT "PRIMARY TARGETS                           PRIMARY TARGETS"
@@ -664,4 +663,3 @@
 8070 RETURN
 
 9000 FOR W% = 1 TO D%: NEXT W% : RETURN
-
