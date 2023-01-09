@@ -16,7 +16,6 @@ void dir(void) {
 void sleep(int time) {
 	int i=0;
 	for (i=0; i < time; i++) {}
-
 }
 
 char *tolower(char *str1) {
@@ -30,6 +29,7 @@ char *tolower(char *str1) {
 	}
 	return str1;
 }
+
 
 void kermit(void) {
 
@@ -47,8 +47,7 @@ void kermit(void) {
 		printf("Kermit-80   0I:>");
         	scanf("%s",command);
 	        if(strcmp(tolower(command),"?")==0) {
-		        printf("\nCONNECT to host on selected port\n");
-                	printf("\n");
+		        printf("\nCONNECT to host on selected port\n\n");
 	                sleep(10000);
 	        } else if(strcmp(tolower(command),"connect")==0) {
 		        printf("\nConnected to remote host.  Type Control-C to return\n");
@@ -110,12 +109,33 @@ void kermit(void) {
 	return;
 }
 
+void dialer(void) {
+
+	int hits=0;
+	int pfs[4] = {399, 437, 767, 936};
+	int pfx[9][2] = {
+		{437, 1083},
+		{936, 1493},
+		{399, 2364},
+		{437, 2977},
+		{767, 3395},
+		{399, 3582},
+		{936, 3923},
+		{767, 7305},
+		{437, 8739}
+	};
+
+	clrscr();
+	printf("\n\nDIALER\n");
+	return;
+}
 
 int main(void){
 	
 	char command[1];
 	
 	clrscr();
+	
 	sleep(10000);
 	printf("64K CP/M VERS. 2.2 MCL030210-D-F8\n\n");
 	
@@ -131,6 +151,8 @@ int main(void){
 			dir();
 		} else if(strcmp(tolower(command),"kermit")==0) {
 			kermit();
+		} else if (strcmp(tolower(command),"dialer")==0) {
+			dialer();	
 		} else {
 			printf("\n%s?\n\n", command);
 		}
