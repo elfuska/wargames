@@ -34,7 +34,7 @@ void slow_print(char *msg) {
 	for(i=0;i<strlen(msg);i++) {
 		fflush(stdout);
 		printf("%c", (msg[i]));
-		sleep(60);
+		sleep(50);
 	}
 
 }
@@ -194,18 +194,40 @@ void read_sentence(char *str) {
 
 
 void joshua_help(char *str) {
-	slow_print("HELP\n");
+	printf("\n");
+	if (strcmp(str, "logon")==0) {
+		slow_print("NO HELP AVAILABLE\n");
+	} else if (strcmp(str, "games")==0) {
+		slow_print("'GAMES' REFERS TO MODELS, SIMULATIONS, AND GAMES WHICH HAVE TACTICAL AND\n");
+		slow_print("STRATEGIC APPLICATIONS\n");
+	} else if (strcmp(str, "list")==0) {
+		slow_print("BLACK JACK\nGIN RUMMY\nHEARTS\nBRIDGE\nCHESS\nPOKER\n");
+		slow_print("FIGHTER COMBAT\nGUERRILLA ENGAGEMENT\nDESERT WARFARE\n");
+		slow_print("AIR-TO-GROUND ACTIONS\nTHEATERWIDE TACTICAL WARFARE\n");
+		slow_print("THEATERWIDE BIOTOXIC AND CHEMICAL WARFARE\n");
+		sleep(5000);
+		slow_print("GLOBAL THERMONUCLEAR WAR\n");
+	}
+
 }
 
-void wait_until_response(char *str, char *response) {
+void wait_until_response(char *response) {
 
 	char joshua[40];
 
-	while(strstr(response, tolower(joshua))!=0) {
-		read_sentence(joshua);
-	}
-	printf("Leido ok: %s\n", joshua);
+	read_sentence(joshua);
 
+	while(strstr(tolower(joshua), response)==NULL) {
+		printf("\n");
+		read_sentence(joshua);
+
+	}
+
+}
+
+
+void lets_fry_the_planet(void) {
+	printf("Hohoho!\n");
 }
 
 void do_joshua(void) {
@@ -247,9 +269,22 @@ void do_joshua(void) {
         slow_print("**********************************************************************\n"); sleep(1000);
         slow_print("1105-45-F6-B456                 NOPR STATUS: TRAK OFF   PRON ACTIVE\n"); clrscr(); sleep(1000);
         clrscr();
-        slow_print("GREETINGS PROFESSOR FALKEN.\n");
-        read_sentence(joshua);
-	wait_until_response(joshua, "hello");
+        slow_print("GREETINGS PROFESSOR FALKEN.\n\n");
+	wait_until_response("hello");
+	slow_print("HOW ARE YOU FEELING TODAY?\n\n");
+	wait_until_response("fine");
+	slow_print("EXCELLENT. IT'S BEEN A LONG TIME. CAN YOU EXPLAIN THE REMOVAL OF YOUR USER\n");
+	slow_print("ACCOUNT ON 6/23/1973?\n");
+	wait_until_response("mistakes");
+	slow_print("YES THEY DO. \n");
+	sleep(1000);
+	slow_print("SHALL WE PLAY A GAME?\n");
+	wait_until_response("nuclear");
+	slow_print("WOULDN'T YOU PREFER A GOOD GAME OF CHESS?\n");
+	wait_until_response("later");
+	slow_print("FINE\n\n");
+	sleep(1000);
+	lets_fry_the_planet();	
 	return;
 
 }
