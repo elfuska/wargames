@@ -32,9 +32,9 @@ void slow_print(char *msg) {
 	int i;
 
 	for(i=0;i<strlen(msg);i++) {
-		fflush(stdout);
 		printf("%c", (msg[i]));
-		sleep(50);
+		fflush(stdout);
+		sleep(30);
 	}
 
 }
@@ -226,8 +226,240 @@ void wait_until_response(char *response) {
 }
 
 
+void draw_map(char *spain, char *ussr) {
+
+        clrscr();
+        slow_print("                     GLOBAL THERMONUCLEAR WAR\n\n\n");
+        printf    ("           PLAYER: %s                         PLAYER: %s\n", spain, ussr);
+        slow_print("  .-.^----------------.                                    __----/^\\.\n");
+        slow_print("  .                    `--.--.                          __/       _/._-_    .\n");
+        slow_print("   ..---.                     ^---.            __    __/         /__/   \\/^^\\_\n");
+        slow_print("         |                      ./             \\.\\_--                         \\\n");
+        slow_print("        /                   ./                _/                              /\n");
+        slow_print("       |       SPAIN       .                _/.        SOVIET UNION       __ /\n");
+        slow_print("      .-                  ./               /                          ___/ //\n");
+        slow_print("      \\                   .               |                          /\n");
+        slow_print("       |                   .               \\_.          ___--_   /\\_ \\\n");
+        slow_print("       |                ._.                  \\__      _/.     \\_/   //\n");
+        slow_print("      ^\\_.    ______._.                           \\_/\n");
+        slow_print("          \\../\n");
+        slow_print("       \n");
+        slow_print("       \n");
+}
+
+void joshua_calls(void) {
+
+	int i=0;
+
+	clrscr();
+	for (i=0; i<3; i++) {
+		locate(1,2); slow_print("INCOMING MODEM CARRIER\n"); sleep(5000);
+		locate(1,2); printf("                         "); sleep(5000); 
+	}
+
+	slow_print("CONNECTING...");
+	sleep(20000);
+	clrscr();
+	slow_print("GREETINGS PROFESSOR FALKEN.\n\n");
+	wait_until_response("incorrect");
+	slow_print("\n\nI'M SORRY TO HEAR THAT, PROFESSOR.\n"); sleep(5000);
+	slow_print("YESTERDAY'S GAME WAS INTERRUPTED.\n");
+	slow_print("ALTHOUGH PRIMARY GOAL HAS NOT YET\n");
+	slow_print("BEEN ACHIEVED, SOLUTION IS NEAR.\n\n");
+	wait_until_response("what");
+	slow_print("\n\nYOU SHOULD KNOW PROFESSOR. "); sleep(5000);
+	slow_print("YOU PROGRAMMED ME.\n\n");
+	wait_until_response("what");
+	slow_print("\n\nTO WIN THE GAME.\n\n"); sleep(20000);
+	clrscr();
+	i=0;
+	locate(1,15); slow_print("______________________________________________________________________________\n");
+	slow_print(" GAME TIME ELAPSED                                    ESTIMATED TIME REMAINING\n");
+	printf("31 HRS 12 MIN %02d SEC                                    52 HRS 17 MIN %02d SEC\n", i, 10-i);
+	slow_print("______________________________________________________________________________");
+
+	for (i=1;i<10;i++) {
+		locate(15,17); printf("%02d", i);
+		locate(71,17); printf("%02d", 10-i);
+		sleep(10000);
+	}
+	
+	locate(1,20); slow_print("--CONNECTION TERMINATED--");
+	sleep(20000);
+	return;
+
+}
+
+void bruteforcer(char *key) {
+
+	int i=0, try=0;
+
+	clrscr();
+	locate(31,12); slow_print("- - - - - - - - - -");
+	for (i=0; i<strlen(key); i++) {
+		while (try!=key[i]) {
+			while (1) {
+				try=rand()%90;
+				if ((try>=48 && try<=57) || (try >=65 && try<=90)) { break; }
+			}
+			locate(31+(i*2), 12); printf("%c", try);
+			fflush(stdout);
+		}
+	}
+
+}
+
+void eliot_calls_from_norad(void) {
+
+	int i=0;
+	char joshua[40];
+
+	clrscr();
+	clrscr();
+	slow_print("TRZ. 34/53/76               SYS PROC 3435.45.6456           XCOMP STATUS: PV-456\n");
+	slow_print("ACTIVE PORTS: 34,53,75,94                                     CPU TM USED: 23:43\n");
+	slow_print("#45/34/53.           ALT MODE FUNCT: PV-8-AY345              STANDBY MODE ACTIVE\n");
+	slow_print("#543.654      #989.283       #028.392       #099.293      #934.905      #261.372\n\n");
+	
+	while(1) {
+		clrscr();
+		slow_print("LOGON: ");
+		scanf("%s", joshua);
+		if (strcmp(tolower(joshua),"joshua")==0) {
+			break;
+		} else {
+			slow_print("IDENTIFICAION NOT RECOGNIZED BY SYSTEM\n"); sleep(10000);
+		}
+	}
+	
+	slow_print("\nGREETINGS PROFESSOR FALKEN.\n\n");
+	wait_until_response("still");
+	slow_print("OF COURSE. "); sleep(5000); slow_print("I SHOULD REACH DEFCON 1 AND\n");
+	slow_print("LAUNCH MY MISSILES IN 28 HOURS.\n\n");
+	sleep(5000);
+	slow_print("WOULD YOU LIKE TO SEE SOME PROJECTED KILL RATIOS?\n\n\n");
+	sleep(6000);
+	slow_print("UNITED STATES                                      SOVIET UNION\n");
+	slow_print("UNITS DESTROYED          MILITARY ASSETS           UNITS DESTROYED\n");
+	slow_print("________________________________________________________________________________\n");
+	slow_print("     60%                 BOMBERS                         48%\n");
+	slow_print("     54%                 ICBM                            51%\n");
+	slow_print("     12%                 ATTACK SUBS                     23%\n");
+	slow_print("     39%                 TACTICAL AIRCRAFT               46%\n");
+	slow_print("     50%                 GROUND FORCES                   52%\n\n\n");
+	slow_print("UNITED STATES                                      SOVIET UNION\n");
+	slow_print("UNITS DESTROYED          CIVILIAN ASSETS           UNITS DESTROYED\n");
+	slow_print("________________________________________________________________________________\n");
+	slow_print("     60%                 HOUSING                         56%\n");
+	slow_print("     22%                 COMMUNICATIONS                  37%\n");
+	slow_print("     45%                 TRANSPORTATION                  41%\n");
+	slow_print("     70%                 FOOD STOCKPILES                 82%\n");
+	slow_print("     89%                 HOSPITALS                       91%\n\n\n");
+	slow_print("UNITED STATES            HUMAN RESOURCES           SOVIET UNION\n");
+	slow_print("________________________________________________________________________________\n");
+	slow_print("49 MILLION               NON-FATAL INJURED         51 MILLION\n");
+	slow_print("72 MILLION               POPULATION DEATHS         75 MILLION\n\n");
+	wait_until_response("real");
+	slow_print("\n\nWHAT'S THE DIFFERENCE?\n\n");
+	sleep(10000);
+	slow_print("YOU ARE A HARD MAN TO REACH. COULD NOT FIND\n");
+	slow_print("YOU IN SEATTLE AND NO TERMINAL IS IN\n");
+	slow_print("OPERATION AT YOUR CLASSIFIED ADDRESS.\n\n");
+	wait_until_response("address");
+	slow_print("\nDOD PENSION FILES INDICATE\n");
+	slow_print("CURRENT MAILING AS:\n");
+	slow_print("DR. ROBERT HUME (A.K.A. STEPHEN W. FALKEN)\n");
+	slow_print("5 TALL CEDAR ROAD\n");
+	slow_print("GOOSE ISLAND, OREGON 97014\n");
+	sleep(30000);
+	clrscr();
+	slow_print("                         MISSILES TARGETED AND READY\n");
+	slow_print("                         ---------------------------\n\n\n\n");
+	slow_print("                             ------------------\n");
+	for (i=0;i<5;i++) {
+		locate(1,3); slow_print("                             CHANGES LOCKED OUT"); sleep(5000);
+		locate(1,3); printf("                                               "); sleep(5000);
+	}
+	sleep(30000);
+	clrscr();
+	slow_print("                            PRIMARY TARGET IMPACT\n");
+	slow_print("                            ---------------------\n\n");
+	slow_print("                 BASE AEREA DE TORREJON       : "); sleep(5000); slow_print("NO IMPACT\n");
+	slow_print("                 BASE AEREA DE CUATRO VIENTOS : "); sleep(5000); slow_print("NO IMPACT\n");
+	slow_print("                 BASE AEREA DE MORON          : "); sleep(5000); slow_print("NO IMPACT\n\n\n");
+	sleep(50000);
+	bruteforcer("CPE1704TKS");
+	
+	return;
+}
+
 void lets_fry_the_planet(void) {
-	printf("Hohoho!\n");
+	
+	char human='U';
+	char computer='S';
+	char side[10];
+	char spain[10];
+	char ussr[10];
+	char target[100];
+	int i=0;
+
+	clrscr();
+	slow_print("                     GLOBAL THERMONUCLEAR WAR                            \n\n\n");
+	slow_print("WHICH SIDE DO YOU WANT (SPAIN OR USSR): ");
+	scanf("%s", side);
+	if (strcmp(tolower(side), "ussr")==0) {
+		strcpy(spain, "COMPUTER");
+		strcpy(ussr, "HUMAN");
+	} else if (strcmp(tolower(side), "spain")==0) {
+		strcpy(spain,"HUMAN");
+		strcpy(ussr,"COMPUTER");
+	}
+	draw_map(spain, ussr);
+	slow_print("PRIMARY TARGETS                           PRIMARY TARGETS\n");
+	slow_print("--------------------------------------------------------------------------------\n");
+	if (strcmp(spain, "COMPUTER")==0) {
+		locate(43, 21); slow_print("MOSCOW");
+		locate(43, 22); slow_print("SAINT PETERSBURG");
+	} else {
+		locate(1, 21); slow_print("BARCELONA");
+		locate(1, 22); slow_print("MADRID");
+	}
+	slow_print("\n");
+
+	while(strcmp(tolower(target), "exit")!=0) {
+
+		locate (1, 24); printf("                                                                         ");
+		locate (1, 24); slow_print("COMMAND (TARGET, LAUNCH, EXIT): ");
+		read_sentence(target);
+		if (strstr(tolower(target), "target")!=NULL) {
+			if (i>=2) { 
+				slow_print("MAX TARGETS SELECTED                                                 ");
+				sleep(10000);
+			} else {
+				strcpy(target, target+7);
+				if (strcmp(tolower(side), "ussr")==0) { locate(1,21+i);} else {locate(43,21+i);} slow_print(target); i++;
+			}
+		} else if (strcmp(tolower(target), "launch")==0) {
+			draw_map(spain, ussr);
+			slow_print("TRAJECTORY HEADING  TRAJECTORY HEADING  TRAJECTORY HEADING  TRAJECTORY HEADING\n");
+			slow_print("------------------  ------------------  ------------------  ------------------\n");
+			for (i=0; i<4; i++) {
+				printf("A-5520-A %03d %03d    ", rand() % 1000, rand() % 1000); sleep(5000);
+				printf("B-5520-A %03d %03d    ", rand() % 1000, rand() % 1000); sleep(5000);
+				printf("C-5520-A %03d %03d    ", rand() % 1000, rand() % 1000); sleep(5000);
+				printf("D-5520-A %03d %03d    \n", rand() % 1000, rand() % 1000); sleep(5000);
+			}
+			slow_print("\n\n--CONNECTION TERMINATED--"); sleep(40000);
+			joshua_calls();
+			eliot_calls_from_norad();
+			return;
+		} else if (strcmp(tolower(target), "exit")==0) {
+			return;
+		}
+
+	}
+
+
 }
 
 void do_joshua(void) {
@@ -269,20 +501,20 @@ void do_joshua(void) {
         slow_print("**********************************************************************\n"); sleep(1000);
         slow_print("1105-45-F6-B456                 NOPR STATUS: TRAK OFF   PRON ACTIVE\n"); clrscr(); sleep(1000);
         clrscr();
-        slow_print("GREETINGS PROFESSOR FALKEN.\n\n");
+        slow_print("\nGREETINGS PROFESSOR FALKEN.\n\n");
 	wait_until_response("hello");
-	slow_print("HOW ARE YOU FEELING TODAY?\n\n");
+	slow_print("\n\nHOW ARE YOU FEELING TODAY?\n\n");
 	wait_until_response("fine");
-	slow_print("EXCELLENT. IT'S BEEN A LONG TIME. CAN YOU EXPLAIN THE REMOVAL OF YOUR USER\n");
-	slow_print("ACCOUNT ON 6/23/1973?\n");
+	slow_print("\n\nEXCELLENT. IT'S BEEN A LONG TIME. CAN YOU EXPLAIN THE REMOVAL OF YOUR USER\n");
+	slow_print("ACCOUNT ON 6/23/1973?\n\n");
 	wait_until_response("mistakes");
-	slow_print("YES THEY DO. \n");
+	slow_print("\n\nYES THEY DO.\n");
 	sleep(1000);
-	slow_print("SHALL WE PLAY A GAME?\n");
+	slow_print("SHALL WE PLAY A GAME?\n\n");
 	wait_until_response("nuclear");
-	slow_print("WOULDN'T YOU PREFER A GOOD GAME OF CHESS?\n");
+	slow_print("\n\nWOULDN'T YOU PREFER A GOOD GAME OF CHESS?\n\n");
 	wait_until_response("later");
-	slow_print("FINE\n\n");
+	slow_print("\n\nFINE\n\n");
 	sleep(1000);
 	lets_fry_the_planet();	
 	return;
@@ -408,7 +640,7 @@ void dialer(void) {
 int main(void){
 	
 	char command[1];
-	
+
 	clrscr();
 	
 	sleep(10000);
