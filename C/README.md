@@ -12,3 +12,5 @@ The cross compiler binary (wargames.com) can be copied to a CP/M disk using cpmu
 cpmcp ./z80pack/imsaisim/disks/library/wargames.dsk wargames.com 0:WG.COM
 ```
 Once inside imsaisim just cd into your disk and exec "WG".
+
+I've included the compiled executable. Just copy to your disk and execute.
