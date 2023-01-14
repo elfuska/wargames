@@ -12,6 +12,7 @@ void sleep(int time) {
 void clrscr(void) {
 	printf("\033[2J");
 	printf("\033[0;0f");
+	fflush(stdout);
 }
 
 void locate(int x, int y) {
@@ -177,7 +178,7 @@ void scanner(void) {
 
 void read_sentence(char *str) {
 
-        char joshua[40];
+        char joshua[140];
         char tmp='a';
         int i=0;
 
@@ -213,7 +214,7 @@ void joshua_help(char *str) {
 
 void wait_until_response(char *response) {
 
-	char joshua[40];
+	char joshua[140];
 
 	read_sentence(joshua);
 
@@ -257,6 +258,7 @@ void joshua_calls(void) {
 		locate(1,2); printf("                         "); sleep(5000); 
 	}
 
+	clrscr();
 	slow_print("CONNECTING...");
 	sleep(20000);
 	clrscr();
@@ -279,8 +281,8 @@ void joshua_calls(void) {
 	slow_print("______________________________________________________________________________");
 
 	for (i=1;i<10;i++) {
-		locate(15,17); printf("%02d", i);
-		locate(71,17); printf("%02d", 10-i);
+		locate(15,17); printf("%02d", i); fflush(stdout);
+		locate(71,17); printf("%02d", 10-i); fflush(stdout);
 		sleep(10000);
 	}
 	
@@ -305,6 +307,13 @@ void bruteforcer(char *key) {
 			locate(31+(i*2), 12); printf("%c", try);
 			fflush(stdout);
 		}
+	}
+
+        locate(31,11); slow_print("--------------------");
+        locate(31,13); slow_print("--------------------");
+	for (i=0;i<9;i++) {
+		locate(31,12); printf("- - - - - - - - - -"); fflush(stdout); sleep(5000);
+		locate(31,12); for(try=0;try<strlen(key);try++) {printf("%c ", key[try]); fflush(stdout);} sleep(5000);
 	}
 
 }
@@ -334,12 +343,12 @@ void eliot_calls_from_norad(void) {
 	
 	slow_print("\nGREETINGS PROFESSOR FALKEN.\n\n");
 	wait_until_response("still");
-	slow_print("OF COURSE. "); sleep(5000); slow_print("I SHOULD REACH DEFCON 1 AND\n");
+	slow_print("\n\nOF COURSE. "); sleep(5000); slow_print("I SHOULD REACH DEFCON 1 AND\n");
 	slow_print("LAUNCH MY MISSILES IN 28 HOURS.\n\n");
 	sleep(5000);
 	slow_print("WOULD YOU LIKE TO SEE SOME PROJECTED KILL RATIOS?\n\n\n");
 	sleep(6000);
-	slow_print("UNITED STATES                                      SOVIET UNION\n");
+	slow_print("SPAIN                                              SOVIET UNION\n");
 	slow_print("UNITS DESTROYED          MILITARY ASSETS           UNITS DESTROYED\n");
 	slow_print("________________________________________________________________________________\n");
 	slow_print("     60%                 BOMBERS                         48%\n");
@@ -347,7 +356,7 @@ void eliot_calls_from_norad(void) {
 	slow_print("     12%                 ATTACK SUBS                     23%\n");
 	slow_print("     39%                 TACTICAL AIRCRAFT               46%\n");
 	slow_print("     50%                 GROUND FORCES                   52%\n\n\n");
-	slow_print("UNITED STATES                                      SOVIET UNION\n");
+	slow_print("SPAIN                                              SOVIET UNION\n");
 	slow_print("UNITS DESTROYED          CIVILIAN ASSETS           UNITS DESTROYED\n");
 	slow_print("________________________________________________________________________________\n");
 	slow_print("     60%                 HOUSING                         56%\n");
@@ -355,7 +364,7 @@ void eliot_calls_from_norad(void) {
 	slow_print("     45%                 TRANSPORTATION                  41%\n");
 	slow_print("     70%                 FOOD STOCKPILES                 82%\n");
 	slow_print("     89%                 HOSPITALS                       91%\n\n\n");
-	slow_print("UNITED STATES            HUMAN RESOURCES           SOVIET UNION\n");
+	slow_print("SPAIN                    HUMAN RESOURCES           SOVIET UNION\n");
 	slow_print("________________________________________________________________________________\n");
 	slow_print("49 MILLION               NON-FATAL INJURED         51 MILLION\n");
 	slow_print("72 MILLION               POPULATION DEATHS         75 MILLION\n\n");
@@ -366,19 +375,19 @@ void eliot_calls_from_norad(void) {
 	slow_print("YOU IN SEATTLE AND NO TERMINAL IS IN\n");
 	slow_print("OPERATION AT YOUR CLASSIFIED ADDRESS.\n\n");
 	wait_until_response("address");
-	slow_print("\nDOD PENSION FILES INDICATE\n");
+	slow_print("\n\nDOD PENSION FILES INDICATE\n");
 	slow_print("CURRENT MAILING AS:\n");
 	slow_print("DR. ROBERT HUME (A.K.A. STEPHEN W. FALKEN)\n");
 	slow_print("5 TALL CEDAR ROAD\n");
-	slow_print("GOOSE ISLAND, OREGON 97014\n");
+	slow_print("GOOSE ISLAND, OREGON 97014\n\n");
 	sleep(30000);
 	clrscr();
 	slow_print("                         MISSILES TARGETED AND READY\n");
 	slow_print("                         ---------------------------\n\n\n\n");
 	slow_print("                             ------------------\n");
 	for (i=0;i<5;i++) {
-		locate(1,3); slow_print("                             CHANGES LOCKED OUT"); sleep(5000);
-		locate(1,3); printf("                                               "); sleep(5000);
+		locate(30,5); slow_print("CHANGES LOCKED OUT"); sleep(5000);
+		locate(30,5); printf("                    "); sleep(5000);
 	}
 	sleep(30000);
 	clrscr();
@@ -389,7 +398,13 @@ void eliot_calls_from_norad(void) {
 	slow_print("                 BASE AEREA DE MORON          : "); sleep(5000); slow_print("NO IMPACT\n\n\n");
 	sleep(50000);
 	bruteforcer("CPE1704TKS");
-	
+	sleep(20000);
+	slow_print("\n\n\nIT'S GOT THE CODE, "); sleep(5000);  slow_print("IT'S GOING TO LAUNCH!");
+	sleep(30000);
+	clrscr(); 
+	slow_print("A STRANGE GAME. "); sleep(10000); slow_print("THE ONLY WINNING MOVE IS NOT TO PLAY");
+	sleep(30000);
+	clrscr();
 	return;
 }
 
@@ -444,10 +459,10 @@ void lets_fry_the_planet(void) {
 			slow_print("TRAJECTORY HEADING  TRAJECTORY HEADING  TRAJECTORY HEADING  TRAJECTORY HEADING\n");
 			slow_print("------------------  ------------------  ------------------  ------------------\n");
 			for (i=0; i<4; i++) {
-				printf("A-5520-A %03d %03d    ", rand() % 1000, rand() % 1000); sleep(5000);
-				printf("B-5520-A %03d %03d    ", rand() % 1000, rand() % 1000); sleep(5000);
-				printf("C-5520-A %03d %03d    ", rand() % 1000, rand() % 1000); sleep(5000);
-				printf("D-5520-A %03d %03d    \n", rand() % 1000, rand() % 1000); sleep(5000);
+				printf("A-5520-A %03d %03d    ", rand() % 1000, rand() % 1000); sleep(2000);
+				printf("B-5520-A %03d %03d    ", rand() % 1000, rand() % 1000); sleep(2000);
+				printf("C-5520-A %03d %03d    ", rand() % 1000, rand() % 1000); sleep(2000);
+				printf("D-5520-A %03d %03d    \n", rand() % 1000, rand() % 1000); sleep(2000);
 			}
 			slow_print("\n\n--CONNECTION TERMINATED--"); sleep(40000);
 			joshua_calls();
@@ -464,12 +479,10 @@ void lets_fry_the_planet(void) {
 
 void do_joshua(void) {
 
-	char joshua[40];
-
         clrscr();
         slow_print("145          11456          11889          11893\n");
-        slow_print("PRT CON. 3.4.5. SECTRAN 9.4.3.          PORT STAT: SB-345\n"); sleep(1000); clrscr();
-        slow_print("(311) 655-7385\n"); sleep(1000); slow_print("\n"); sleep(1000); clrscr();
+        slow_print("PRT CON. 3.4.5. SECTRAN 9.4.3.          PORT STAT: SB-345\n"); sleep(1000); slow_print("\n"); sleep(1000); clrscr();
+        slow_print("(311) 655-7385\n"); sleep(1000); slow_print("\n"); sleep(1000); slow_print("\n"); sleep(1000); clrscr();
         slow_print("\n"); sleep(1000); slow_print("\n"); clrscr();
         slow_print("\n\n"); sleep(1000); clrscr();
         slow_print("(311) 767-8739\n"); sleep(1000);
@@ -481,11 +494,11 @@ void do_joshua(void) {
         slow_print("CPU AUTH RY-345-AX3     SYSCOMP STATUS: ALL PORTS ACTIVE\n"); sleep(1000);
         slow_print("22/34534.90/3289               CVB-3904-39490\n"); sleep(1000);
         slow_print("(311) 936-2384\n"); sleep(1000);
-        slow_print("(311) 936-3582\n"); sleep(1000);
+        slow_print("(311) 936-3582\n"); sleep(1000); clrscr();
         slow_print("22/34534.3209                  CVB-3904-39490\n"); sleep(1000);
         slow_print("12934-AD-43KJ: CENTR PAK\n"); sleep(1000);
         slow_print("(311) 767-1083\n"); sleep(1000); clrscr();
-        slow_print("FLD CRS: 33.34.543     HPBS: 34/56/67/83     STATUS FLT  034/304\n"); sleep(1000);
+        slow_print("FLD CRS: 33.34.543     HPBS: 34/56/67/83     STATUS FLT  034/304\n"); sleep(1000); clrscr();
         slow_print("1105-45-F6-B456          NOPR STATUS: TRAK OFF     PRON ACTIVE\n"); sleep(1000);
         slow_print("(45:45:45  WER: 45/29/01 XCOMP: 43239582 YCOMP: 3492930D ZCOMP: 343906834\n"); sleep(1000);
         slow_print("                                          SRON: 65=65/74/84/65/89\n"); sleep(1000); clrscr();
@@ -493,7 +506,7 @@ void do_joshua(void) {
         slow_print("(311) 936-1582==============================================\n"); sleep(1000);
         slow_print("                  3453                3594\n"); sleep(1000); clrscr();
         slow_print("FLJ42   TK01   BM90   R601   6J82   FP03   ZWO::   JW89\n"); sleep(1000);
-        slow_print("DEF TRPCON: 43.45342.349\n"); sleep(10000); sleep(1000);
+        slow_print("DEF TRPCON: 43.45342.349\n"); sleep(1000);
         slow_print("SYSPROC FUNCT READY                            ALT NET READY\n"); sleep(1000);
         slow_print("\n"); sleep(1000);
         slow_print("CPU AUTH RY-345-AX3     SYSCOMP STATUS: ALL PORTS ACTIVE\n"); sleep(1000);
@@ -501,7 +514,8 @@ void do_joshua(void) {
         slow_print("**********************************************************************\n"); sleep(1000);
         slow_print("1105-45-F6-B456                 NOPR STATUS: TRAK OFF   PRON ACTIVE\n"); clrscr(); sleep(1000);
         clrscr();
-        slow_print("\nGREETINGS PROFESSOR FALKEN.\n\n");
+        sleep(20000);
+	slow_print("\nGREETINGS PROFESSOR FALKEN.\n\n");
 	wait_until_response("hello");
 	slow_print("\n\nHOW ARE YOU FEELING TODAY?\n\n");
 	wait_until_response("fine");
@@ -515,7 +529,7 @@ void do_joshua(void) {
 	slow_print("\n\nWOULDN'T YOU PREFER A GOOD GAME OF CHESS?\n\n");
 	wait_until_response("later");
 	slow_print("\n\nFINE\n\n");
-	sleep(1000);
+	sleep(10000);
 	lets_fry_the_planet();	
 	return;
 
@@ -523,16 +537,18 @@ void do_joshua(void) {
 
 void wopr(void) {
 
+	int i=0;
 	char joshua[40];
 
 	clrscr();
 
-	slow_print("DIALING\n");
-	slow_print("CONNECTING\n"); sleep(10000);
+	slow_print("DIALING...\n"); sleep(10000);
 	clrscr();
-	slow_print("                         #\n"); sleep(1000); clrscr();
-	slow_print("\n                                           #\n"); sleep(1000); clrscr();
-	slow_print("\n\n                                                          #\n"); sleep(1000); clrscr();
+	slow_print("CONNECTING...\n"); sleep(10000);
+	clrscr();
+	for (i=0;i<25;i++) {slow_print(" ");} slow_print("#\n"); sleep(1000); clrscr();
+	slow_print("\n\n"); for (i=0;i<43;i++) {slow_print(" ");} slow_print("#\n"); sleep(1000); clrscr();
+	slow_print("\n\n\n"); for (i=0;i<58;i++) {slow_print(" ");} slow_print("#\n"); sleep(1000); clrscr();
 	slow_print("\n\n\n");
 	
 	while(1) {
@@ -615,26 +631,31 @@ void view_systems(void) {
 		wopr();
         } else {
 		return;
-        } 
+        }
+
+	return;	
 }
 
 
 void dialer(void) {
 
-	char command[1];
+	char command[20];
 
 	clrscr();
 	printf("\n\nDIALER\n");
-	while (strcmp(tolower(command), "exit")!=0 && strcmp(tolower(command), "x")!=0) {
+	while (1) {
+		clrscr();
 		slow_print("\nMENU - (S)CAN, (V)IEW OR E(X)IT: ");
 		scanf("%s", command);
 		if (strcmp(tolower(command), "scan")==0 || strcmp(tolower(command), "s")==0) {
 			scanner();
 		} else if (strcmp(tolower(command), "view")==0 || strcmp(tolower(command), "v")==0) {	
 			view_systems();
+		} else if (strcmp(tolower(command), "exit")==0 || strcmp(tolower(command), "x")==0) {
+			clrscr();
+			return;
 		}
 	}
-	return;
 }
 
 int main(void){
@@ -642,7 +663,6 @@ int main(void){
 	char command[1];
 
 	clrscr();
-	
 	sleep(10000);
 	slow_print("64K CP/M VERS. 2.2 MCL030210-D-F8\n\n");
 	
