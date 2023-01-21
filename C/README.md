@@ -7,7 +7,7 @@ Compiled using [The Amsterdam Compiler Kit](https://github.com/davidgiven/ack):
 ```
 ack -mcpm -O4 -ansi -o wargames.com imsai8080.c
 ```
-The cross compiler binary (wargames.com) can be copied to a CP/M disk using cpmutils:
+The cross compiled binary (wargames.com) can be copied to a CP/M disk using cpmutils:
 ```
 cpmcp ./z80pack/imsaisim/disks/library/wargames.dsk wargames.com 0:WG.COM
 ```
